@@ -54,7 +54,7 @@ export default class LoginSc extends Component {
         this.state = {
             id:"",
             pw:"",
-            loginCheck:true,
+            loginCheck:false,
         };
     }
 
@@ -93,6 +93,7 @@ export default class LoginSc extends Component {
         })
         .then((response) => response.json())
         .then((responseJson) => {
+            console.log("LoginLog", responseJson);
             if(!responseJson.error)
             {
                 this.setState({
@@ -172,7 +173,7 @@ export default class LoginSc extends Component {
         
         return (
             this.state.loginCheck == false ?
-            <View style={{flex:1}}>
+            (<View style={{flex:1}}>
                 <View style={styles.logo}>
                     <Text>로고</Text>
                 </View>
@@ -212,10 +213,10 @@ export default class LoginSc extends Component {
                     </View>
                 </View>
             </View>
-            :
-            <View>
+            ):
+            (<View>
 
-            </View>
+            </View>)
         );
     }
 }
