@@ -152,7 +152,7 @@ export default class MainSc extends Component {
                 <ImageBackground
                 style={{width:"100%",height:"100%"}}
                 source={require("../css/imgs/main_background.png")}>
-                    <View style={{flex:2}}>
+                    <View style={{flex:2,zIndex:2}}>
                         <View style={styles.myInfo}>
                             <View style={{flexDirection:"row"}}>
                                 <View style={{marginTop:-20}}>
@@ -190,7 +190,7 @@ export default class MainSc extends Component {
                                                 <NetmarbleL 
                                                 style={styles.friendsCount}>
                                                     {`${translate('all_user')}\n`}
-                                                    {`${this.state.allCount}${translate('people_count')}\n`}
+                                                    {this.state.allCount}{translate('people_count')}
                                                 </NetmarbleL>
                                             </TouchableOpacity>
                                         </Col>
@@ -199,7 +199,7 @@ export default class MainSc extends Component {
                                                 <NetmarbleL 
                                                 style={styles.friendsCount}>
                                                     {`${translate('online')}\n`}
-                                                    {`${this.state.onCount}${translate('people_count')}\n`}
+                                                    {this.state.onCount}{translate('people_count')}
                                                 </NetmarbleL>
                                             </TouchableOpacity>
                                         </Col>
@@ -208,7 +208,7 @@ export default class MainSc extends Component {
                                                 <NetmarbleL 
                                                 style={styles.friendsCount}>
                                                     {`${translate('offline')}\n`}
-                                                    {`${this.state.offCount}${translate('people_count')}\n`}
+                                                    {this.state.offCount}{translate('people_count')}
                                                 </NetmarbleL>
                                             </TouchableOpacity>
                                         </Col>
@@ -221,7 +221,7 @@ export default class MainSc extends Component {
                         <Row>
                             <Col style={{alignItems:"flex-end"}}>
                                 <Button
-                                onPress={() => Actions.currentScene == "mainSc" && Actions.alertSc}
+                                onPress={() => Actions.currentScene == "mainSc" && Actions.alertSc()}
                                 style={styles.infoButton}>
                                     <View style={{alignItems:"center"}}>
                                         <Image 
@@ -275,13 +275,13 @@ export default class MainSc extends Component {
                                         <Image 
                                         style={{width:50,height:50,resizeMode:"center"}}
                                         source={require("../css/imgs/favorite_icon.png")}/>
-                                        <NetmarbleM style={styles.infoButtonText}>{translate('favorite_manage')}</NetmarbleM>
+                                        <NetmarbleM style={[styles.infoButtonText,{textAlign:"center"}]}>{translate('favorite_manage')}</NetmarbleM>
                                     </View>
                                 </Button>
                             </Col>
                             <Col>
                                 <Button
-                                onPress={() => Actions.currentScene == "mainSc" && Actions.avatarListSc}
+                                onPress={() => Actions.currentScene == "mainSc" && Actions.avatarListSc()}
                                 style={styles.infoButton}>
                                     <View style={{alignItems:"center"}}>
                                         <Image 
@@ -295,7 +295,7 @@ export default class MainSc extends Component {
                         <Row>
                             <Col style={{alignItems:"flex-end"}}>
                                 <Button
-                                onPress={() => Actions.currentScene == "mainSc" && Actions.blockSc}
+                                onPress={() => Actions.currentScene == "mainSc" && Actions.blockSc()}
                                 style={styles.infoButton}>
                                     <View style={{alignItems:"center"}}>
                                         <Image 
